@@ -1,0 +1,40 @@
+name: Build ShiroAttack2
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:  # 允许手动触发构建
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 运行环境
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'  # 使用 Eclipse Temurin JDK（与 Liberica 兼容）
+          java-version: '21'
+          cache: 'maven'
+
+      - name: Build with Maven
+        run: mvn clean package -DskipTests  # 先跳过测试，确保顺利打包
+
+      - name: Upload JAR as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ShiroAttack2-jar
+          path: target/ShiroAttack2-jar-with-dependencies.jar
+
+      - name: Release JAR (on new tag)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/ShiroAttack2-jar-with-dependencies.jar
