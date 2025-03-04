@@ -28,7 +28,7 @@ jobs:
         run: mvn clean package -DskipTests
 
       - name: Upload JAR as artifact
-        uses: actions/upload-artifact@v4  # ✅ 更新到 v4
+        uses: actions/upload-artifact@v4
         with:
           name: ShiroAttack2-JAR
           path: target/shiro_attack-4.5.6-SNAPSHOT-all.jar
