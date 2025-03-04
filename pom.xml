@@ -15,51 +15,34 @@
     </properties>
 
     <dependencies>
-        <!-- JavaFX 支持 -->
+
+        <!-- Servlet API (支持 HttpServletRequest, HttpServletResponse, Filter) -->
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>21</version>
-        </dependency>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>21</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
 
-        <!-- JAXB 兼容 -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.1</version>
-        </dependency>
-
-        <!-- JAX-WS 兼容 -->
-        <dependency>
-            <groupId>com.sun.xml.ws</groupId>
-            <artifactId>jaxws-rt</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-
-        <!-- Apache Commons -->
+        <!-- Apache Commons Collections (支持 CommonsCollections2 相关类) -->
         <dependency>
             <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
         </dependency>
 
-        <!-- Base64 替代 -->
+        <!-- Javassist (支持动态字节码修改) -->
         <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.15</version>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.29.2-GA</version>
         </dependency>
 
-        <!-- Xalan 依赖 -->
+        <!-- Tomcat Catalina (支持 org.apache.catalina 相关类) -->
         <dependency>
-            <groupId>xalan</groupId>
-            <artifactId>xalan</artifactId>
-            <version>2.7.2</version>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-catalina</artifactId>
+            <version>10.1.14</version>
         </dependency>
 
         <!-- XML Security -->
@@ -69,11 +52,39 @@
             <version>3.0.2</version>
         </dependency>
 
-        <!-- 日志支持 -->
+        <!-- JAX-WS (支持 com.sun.xml.internal.ws.util) -->
         <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j-api</artifactId>
-            <version>2.14.1</version>
+            <groupId>com.sun.xml.ws</groupId>
+            <artifactId>jaxws-rt</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <!-- Xalan (支持 com.sun.org.apache.xalan.internal.xsltc 相关类) -->
+        <dependency>
+            <groupId>xalan</groupId>
+            <artifactId>xalan</artifactId>
+            <version>2.7.2</version>
+        </dependency>
+
+        <!-- Apache Commons Codec (Base64 替代方案) -->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.15</version>
+        </dependency>
+
+        <!-- Apache Commons BeanUtils (支持 CommonsBeanutilsAttrCompare) -->
+        <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+
+        <!-- Mozilla Universal Charset Detector (支持字符编码检测) -->
+        <dependency>
+            <groupId>com.googlecode.juniversalchardet</groupId>
+            <artifactId>juniversalchardet</artifactId>
+            <version>1.0.3</version>
         </dependency>
 
     </dependencies>
