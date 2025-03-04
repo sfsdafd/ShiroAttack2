@@ -1,4 +1,4 @@
-name: Build and Release ShiroAttack2
+name: Build and Release
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
       - name: Build with Maven
         run: mvn clean package -DskipTests
 
-      - name: Upload JAR as artifact
+      - name: Upload JAR
         uses: actions/upload-artifact@v4
         with:
           name: ShiroAttack2-JAR
