@@ -14,36 +14,33 @@
     </properties>
 
     <dependencies>
+        <!-- ✅ 解决 JavaFX 依赖 -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>21</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21</version>
+        </dependency>
+
         <!-- ✅ 解决 javax.xml.bind.DatatypeConverter 兼容问题 -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.glassfish.jaxb</groupId>
             <artifactId>jaxb-runtime</artifactId>
             <version>2.3.1</version>
-        </dependency>
-
-        <!-- ✅ 解决 JavaFX 依赖问题 -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>21</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>21</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-base</artifactId>
-            <version>21</version>
         </dependency>
 
         <!-- ✅ 解决 SLF4J 日志警告 -->
@@ -53,37 +50,13 @@
             <version>2.0.9</version>
         </dependency>
 
-        <!-- 其他原有的依赖 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.12.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.7</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>4.2.0.RELEASE</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-web</artifactId>
-            <version>4.2.0.RELEASE</version>
-        </dependency>
-
+        <!-- 其他 Shiro 相关依赖 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>
             <artifactId>shiro-core</artifactId>
             <version>1.2.4</version>
         </dependency>
-
+        
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
@@ -93,7 +66,7 @@
 
     <build>
         <plugins>
-            <!-- ✅ 让 JAR 兼容 Java 21 -->
+            <!-- ✅ 编译支持 Java 21 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -105,7 +78,7 @@
                 </configuration>
             </plugin>
 
-            <!-- ✅ 生成可运行的 Fat JAR，包含所有依赖 -->
+            <!-- ✅ 让最终 JAR 里包含所有依赖 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
